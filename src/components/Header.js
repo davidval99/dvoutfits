@@ -8,8 +8,10 @@ function Header() {
 
   return (
     <>
+    
     <header className="header">
-        <SocialFollow />
+    <img className="logoD" src="/images/dvlogo.jpg" />
+    <SocialFollow />
     <div className="header-links">
         <a href="cart.html">Cart</a>
         <a href="signin.html">Sign In</a>
