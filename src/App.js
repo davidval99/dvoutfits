@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import Footer from './components/Footer';
 import Historia from './components/Historia';
 import HomePage from './components/HomePage';
+import PreguntasFrecuentes from './components/PreguntasFrecuentes';
 
 
 function App() {
@@ -22,13 +23,12 @@ function App() {
     
     <div className="grid-container">
       <Navbar />
-      
-    
 
     <main className="main">
       <div className="content">
       <Route path="/" exact={true} component={HomePage} />
       <Route path="/nosotros/historia" component={Historia} />
+      <Route path="/faq" component={PreguntasFrecuentes} />
       
       </div>
 
