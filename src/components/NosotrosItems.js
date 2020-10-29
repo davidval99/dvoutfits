@@ -6,18 +6,18 @@ export const NosotrosItems = [
     },
     {
       title: 'Nuestros productos',
-      path: '/nosotros/nuestrosProductos',
+      path: '/nosotros/nuestros-productos',
       cName: 'dropdown-link'
     },
 
     {
       title: 'Ubicación',
-      path: '/nosotros/ubicación',
+      path: '/nosotros/ubicacion',
       cName: 'dropdown-link'
     },
     {
       title: 'Conformación de la empresa',
-      path: '/nosotros/conformacionEmpresa',
+      path: '/nosotros/conformacion-empresa',
       cName: 'dropdown-link'
     }
     

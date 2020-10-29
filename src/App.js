@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import Footer from './components/Footer';
 import Historia from './components/Historia';
+import Ubicacion from './components/Ubicacion';
+import Conformacion from './components/Conformacion';
 import HomePage from './components/HomePage';
 
 
@@ -29,6 +31,8 @@ function App() {
       <div className="content">
       <Route path="/" exact={true} component={HomePage} />
       <Route path="/nosotros/historia" component={Historia} />
+      <Route path="/nosotros/ubicacion" component={Ubicacion} />
+      <Route path="/nosotros/conformacion-empresa" component={Conformacion} />
       
       </div>
 
