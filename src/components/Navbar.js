@@ -35,7 +35,6 @@ function Navbar() {
     <>
     <Header />
       <nav className='navbar'>
-      <img className="logoD" src="/images/dvlogo.jpg" />
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
@@ -59,24 +58,6 @@ function Navbar() {
             </Link>
             {dropdown && <Dropdown />}
           </li>
-          <li className='nav-item'>
-            <Link
-              to='/products'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              Preguntas frecuentes
-            </Link>
-          </li>
-          <li className='nav-item'>
-            <Link
-              to='/contact-us'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              Contact Us
-            </Link>
-          </li>
           <li 
             className='nav-item'
             onMouseEnter={onMouseEnter}
@@ -91,8 +72,16 @@ function Navbar() {
             </Link>
             {dropdown && <Dropdown2 />}
           </li>
+          <li className='nav-item'>
+            <Link
+              to='/products'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              Preguntas frecuentes
+            </Link>
+          </li>
         </ul>
-        <Button />
       </nav>
     </>
   );

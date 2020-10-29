@@ -18,13 +18,14 @@
 }
 
 .nav-menu {
+  margin-left: 25%;
   display: grid;
   grid-template-columns: repeat(5, auto);
   grid-gap: 10px;
   list-style: none;
   text-align: center;
   width: 70vw;
-  justify-content: end;
+
   margin-right: 2rem;
 }
 
