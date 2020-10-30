@@ -7,7 +7,7 @@ import Historia from './components/Historia';
 import Ubicacion from './components/Ubicacion';
 import Conformacion from './components/Conformacion';
 import HomePage from './components/HomePage';
-import PreguntasFrecuentes from './components/PreguntasFrecuentes';
+import FAQ from './components/FAQ';
 
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
       <Route path="/nosotros/historia" component={Historia} />
       <Route path="/nosotros/ubicacion" component={Ubicacion} />
       <Route path="/nosotros/conformacion-empresa" component={Conformacion} />
-      <Route path="/faq" component={PreguntasFrecuentes} />
+      <Route path="/faq" component={FAQ} />
 
       
       </div>
