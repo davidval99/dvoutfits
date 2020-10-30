@@ -1,0 +1,43 @@
+.social-container {
+  background: #ffd7d7;
+  width: 750px;
+  height: 5px;
+  padding-bottom: 1px;
+  position: fixed;
+  left: 50%; /* Start at 50% of browser window */
+  margin-left: -325px; /* Go half of width to the left, centering the element */
+}
+.center {
+  display: block;
+  margin-left: auto;
+  align-items: center;
+  width: 45%;
+}
+
+a.social {
+  margin: 0 1rem;
+  transition: transform 250ms;
+  display: inline-block;
+}
+
+a.social:hover {
+  transform: translateY(-2px);
+}
+
+a.youtube {
+  color: #eb3223;
+}
+
+a.facebook {
+  size: 10px;
+  color: #000000;
+}
+
+a.twitter {
+  color: #49a1eb;
+}
+
+a.instagram {
+  size: 10px;
+  color: #000000;
+}
