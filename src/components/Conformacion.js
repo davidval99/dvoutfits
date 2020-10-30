@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import './Historia.css';
+import './Conformacion.css';
 
  
-class Historia extends Component {
+class Conformacion extends Component {
   render() {
     return (
       <div className="items">
         <div >
           <ul>
             <div>
-              <h1 className="h1">Nuestra historia</h1>
+              <h1 className="h1">Conformación de la empresa</h1>
             </div>
 
             <div > 
-              <img  className="image-h" src="/images/historia.jpg" alt="autor" width="350" height="450" />
+              <img  className="image-h" src="/images/conformacion.jpg" alt="autor" width="350" height="450" />
             </div>  
           </ul>
         </div>  
@@ -39,4 +39,4 @@ class Historia extends Component {
   }
 }
  
-export default Historia;
+export default Conformacion;
