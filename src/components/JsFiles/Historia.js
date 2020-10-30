@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './Historia.css';
+import '../CssFiles/Historia.css';
 
  
 class Historia extends Component {

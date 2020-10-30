@@ -6,7 +6,7 @@ export const NosotrosItems = [
     },
     {
       title: 'Nuestros productos',
-      path: '/nosotros/nuestros-productos',
+      path: '/nosotros/nuestrosProductos',
       cName: 'dropdown-link'
     },
 

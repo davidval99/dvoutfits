@@ -3,13 +3,15 @@ import './App.css';
 import Navbar from './components/JsFiles/Navbar';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-import Footer from './components/Footer';
-import Historia from './components/Historia';
+import Footer from './components/JsFiles/Footer';
+import Historia from './components/JsFiles/Historia';
 import OurProductsDescription from "./components/JsFiles/OurProductsDescription";
+import HomePage from './components/JsFiles/HomePage';
 import Ubicacion from './components/Ubicacion';
 import Conformacion from './components/Conformacion';
-import HomePage from './components/HomePage';
 import FAQ from './components/FAQ';
+
+
 
 function App() {
 
