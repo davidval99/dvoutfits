@@ -10,7 +10,7 @@ function Header() {
     <>
     
     <header className="header">
-    <img className="logoD" src="/images/dvlogo.jpg" />
+    <img className="logoD" src="/images/dvLogo.svg" />
     <SocialFollow />
     <div className="header-links">
         <a href="cart.html">Cart</a>
