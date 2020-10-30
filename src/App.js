@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navbar from './components/Navbar';
+import Navbar from './components/JsFiles/Navbar';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import Footer from './components/Footer';
-import Historia from './components/Historia';
-import HomePage from './components/HomePage';
+import Footer from './components/JsFiles/Footer';
+import Historia from './components/JsFiles/Historia';
+import OurProductsDescription from "./components/JsFiles/OurProductsDescription";
+import HomePage from './components/JsFiles/HomePage';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
       <div className="content">
       <Route path="/" exact={true} component={HomePage} />
       <Route path="/nosotros/historia" component={Historia} />
+      <Route path="/nosotros/nuestrosProductos" component={OurProductsDescription}/>
       
       </div>
 
