@@ -7,6 +7,7 @@ import Historia from './components/Historia';
 import Ubicacion from './components/Ubicacion';
 import Conformacion from './components/Conformacion';
 import HomePage from './components/HomePage';
+import PreguntasFrecuentes from './components/PreguntasFrecuentes';
 
 
 function App() {
@@ -24,8 +25,6 @@ function App() {
     
     <div className="grid-container">
       <Navbar />
-      
-    
 
     <main className="main">
       <div className="content">
@@ -33,6 +32,8 @@ function App() {
       <Route path="/nosotros/historia" component={Historia} />
       <Route path="/nosotros/ubicacion" component={Ubicacion} />
       <Route path="/nosotros/conformacion-empresa" component={Conformacion} />
+      <Route path="/faq" component={PreguntasFrecuentes} />
+
       
       </div>
 
