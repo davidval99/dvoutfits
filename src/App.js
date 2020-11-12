@@ -10,6 +10,8 @@ import HomePage from './components/JsFiles/HomePage';
 import Ubicacion from './components/Ubicacion';
 import Conformacion from './components/Conformacion';
 import FAQ from './components/FAQ';
+import ProductForm from "./components/JsFiles/ProductForm";
+import ProductInsert from "./components/JsFiles/ProductCRUD";
 
 
 
@@ -37,7 +39,7 @@ function App() {
       <Route path="/nosotros/ubicacion" component={Ubicacion} />
       <Route path="/nosotros/conformacion-empresa" component={Conformacion} />
       <Route path="/faq" component={FAQ} />
-      
+      <Route path= "/RegisterProduct" component={ProductInsert} />
       </div>
 
     </main>

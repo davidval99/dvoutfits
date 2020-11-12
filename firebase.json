@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "dvoutfits-d6abd",
     "public": "build",
     "ignore": [
       "firebase.json",
