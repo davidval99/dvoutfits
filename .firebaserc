@@ -1,5 +1,6 @@
 {
   "projects": {
-    "DV": "dvoutfits-d6abd"
+    "dvoutfits": "dvoutfits-d6abd",
+    "default": "dvoutfits-d6abd"
   }
 }
