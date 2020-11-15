@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import './FAQ.css';
-
  
-class Ubicacion extends Component {
+class FAQ extends Component {
   render() {
     return (
+     
       <div className="items">
         <div >
           <ul>
@@ -47,4 +46,4 @@ Si a pesar de ello, recibes un artículo defectuoso, escríbenos a través de nu
   }
 }
  
-export default Ubicacion;
+export default FAQ;
