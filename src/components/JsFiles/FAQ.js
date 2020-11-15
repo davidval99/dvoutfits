@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import './FAQ.css';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+
+import '../CssFiles/FAQ.css';
 
  
 class Ubicacion extends Component {
   render() {
     return (
+
       <div className="items">
         <div >
           <ul>
@@ -43,8 +46,16 @@ Si a pesar de ello, recibes un artículo defectuoso, escríbenos a través de nu
           </ul>
         </div>
  </div>
+
     );
+
+
   }
+ 
+
+
+  
+
 }
  
 export default Ubicacion;

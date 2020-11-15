@@ -18,7 +18,7 @@
 }
 
 .nav-menu {
-  margin-left: 25%;
+  margin-left: 15%;
   display: grid;
   grid-template-columns: repeat(5, auto);
   grid-gap: 10px;
