@@ -9,7 +9,7 @@ import OurProductsDescription from "./components/JsFiles/OurProductsDescription"
 import HomePage from './components/JsFiles/HomePage';
 import Ubicacion from './components/Ubicacion';
 import Conformacion from './components/Conformacion';
-import FAQ from './components/FAQ';
+import FAQ from './components/JsFiles/FAQ';
 import ProductForm from "./components/JsFiles/ProductForm";
 import ProductInsert from "./components/JsFiles/ProductCRUD";
 
