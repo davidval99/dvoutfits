@@ -12,7 +12,8 @@ import Conformacion from './components/Conformacion';
 import FAQ from './components/FAQ';
 import ProductForm from "./components/JsFiles/ProductForm";
 import ProductInsert from "./components/JsFiles/ProductCRUD";
-
+import Login from './components/JsFiles/LoginCRUD';
+import Signin from './components/JsFiles/SigninCRUD';
 
 
 function App() {
@@ -40,6 +41,10 @@ function App() {
       <Route path="/nosotros/conformacion-empresa" component={Conformacion} />
       <Route path="/faq" component={FAQ} />
       <Route path= "/RegisterProduct" component={ProductInsert} />
+      <Route path="/nosotros/ubicacion" component={Ubicacion} />
+      <Route path="/login" component={Login} />
+      <Route path="/signin" component={Signin} />
+
       </div>
 
     </main>
