@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/JsFiles/Navbar';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
+import { ChakraProvider } from "@chakra-ui/core";
 import Footer from './components/JsFiles/Footer';
 import Historia from './components/JsFiles/Historia';
 import OurProductsDescription from "./components/JsFiles/OurProductsDescription";
@@ -12,6 +13,9 @@ import Conformacion from './components/Conformacion';
 import FAQ from './components/JsFiles/FAQ';
 import ProductForm from "./components/JsFiles/ProductForm";
 import ProductInsert from "./components/JsFiles/ProductCRUD";
+
+import { Container, Flex, Spinner, VStack } from "@chakra-ui/core";
+import CommentSection from './components/JsFiles/CommentSection';
 import Login from './components/JsFiles/LoginCRUD';
 import Signin from './components/JsFiles/SigninCRUD';
 
@@ -41,6 +45,9 @@ function App() {
       <Route path="/nosotros/conformacion-empresa" component={Conformacion} />
       <Route path="/faq" component={FAQ} />
       <Route path= "/RegisterProduct" component={ProductInsert} />
+
+      <Route path= "/forum" component={CommentSection} />
+
       <Route path="/nosotros/ubicacion" component={Ubicacion} />
       <Route path="/login" component={Login} />
       <Route path="/signin" component={Signin} />

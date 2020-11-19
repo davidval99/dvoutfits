@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { ChakraProvider } from "@chakra-ui/core";
 
 import './components/JsFiles/Firebase'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider>
+      <App />
+    </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
