@@ -1,10 +1,8 @@
-import { Container, Flex, Spinner, VStack } from "@chakra-ui/core";
+import { Container, Flex, Spinner, VStack } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import Post from "./post";
-import { db } from './Firebase';
+import { db } from "./Firebase";
 import NavbarCommentSection from "./NavbarCommentSection";
-
-
 
 const CommentSection = () => {
   const [posts, setPosts] = useState([]);
@@ -42,6 +40,5 @@ const CommentSection = () => {
     </>
   );
 };
-
 
 export default CommentSection;
