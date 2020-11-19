@@ -1,12 +1,14 @@
 import React, { Component } from "react";
+
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 import '../CssFiles/FAQ.css';
 
  
-class Ubicacion extends Component {
+class FAQ extends Component {
   render() {
     return (
+     
 
       <div className="items">
         <div >
@@ -48,14 +50,8 @@ Si a pesar de ello, recibes un artículo defectuoso, escríbenos a través de nu
  </div>
 
     );
-
-
   }
- 
-
-
-  
-
 }
  
-export default Ubicacion;
+export default FAQ;
+
