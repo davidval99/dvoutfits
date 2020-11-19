@@ -1,62 +1,57 @@
-import React from 'react';
-import Card from './Card';
-import Nav from './Nav';
-import '../CssFiles/Carrousel.css';
-import Home from '../Home/Home';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import React from "react";
+import Card from "./Card";
+import Nav from "./Nav";
+import "../CssFiles/Carrousel.css";
+import Home from "../Home/Home";
+import { BrowserRouter } from "react-router-dom";
 
-
-class CarrouselComponent extends React.Component{
-
+class CarrouselComponent extends React.Component {
   state = {
-    data: []
+    data: [],
   };
   myRef = React.createRef();
 
-  getData = async ()=>{
-      
-    const res = await fetch('data.json');
+  getData = async () => {
+    const res = await fetch("data.json");
     const data = await res.json();
-    this.setState({data: data});
+    this.setState({ data: data });
   };
 
-  componentDidMount(){
+  componentDidMount() {
     this.getData();
-  };
+  }
 
-
-  prevClick = () =>{
+  prevClick = () => {
     const slide = this.myRef.current;
     slide.scrollLeft -= slide.offsetWidth;
-    if(slide.scrollLeft <= 0){
+    if (slide.scrollLeft <= 0) {
       slide.scrollLeft = slide.scrollWidth;
     }
   };
 
-  nextClick = () =>{
+  nextClick = () => {
     const slide = this.myRef.current;
     slide.scrollLeft += slide.offsetWidth;
-    if(slide.scrollLeft >= (slide.scrollWidth - slide.offsetWidth)){
+    if (slide.scrollLeft >= slide.scrollWidth - slide.offsetWidth) {
       slide.scrollLeft = 0;
     }
   };
 
-
-  render(){
-    const {data} = this.state;
-    return(
-        <BrowserRouter>
-        < Home />
-      <div className="wrapper">
+  render() {
+    const { data } = this.state;
+    return (
+      <BrowserRouter>
+        <Home />
+        <div className="wrapper">
           <div className="app" ref={this.myRef}>
-            <Card data={data}/>
+            <Card data={data} />
           </div>
-          
+
           <Nav prev={this.prevClick} next={this.nextClick} />
-      </div>
+        </div>
       </BrowserRouter>
     );
-  };
+  }
 }
 
 export default CarrouselComponent;
