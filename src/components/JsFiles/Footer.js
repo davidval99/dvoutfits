@@ -1,6 +1,7 @@
 import React from "react";
 import "../CssFiles/Footer.css";
 import SocialFollow from "./SocialFollow";
+import Contact from "./ContactCRUD";
 
 function Footer() {
   return (
@@ -13,6 +14,8 @@ function Footer() {
               <dt>Teléfono:  +506 84758345</dt>
               <br></br>
               <dt>E-mail: info@dvoutfits.com</dt>
+              <br></br>
+              <a href="Contact">Enviar mensaje</a>
             </ui>
           </div>
           {/* Column2 */}
