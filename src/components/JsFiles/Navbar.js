@@ -6,7 +6,7 @@ import "../CssFiles/SocialFollow.css";
 import Dropdown from './Dropdown';
 import Dropdown2 from './Dropdown2';
 import Header from './Header';
-
+import AddNewPost from "./add-new-post";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -79,6 +79,15 @@ function Navbar() {
               onClick={closeMobileMenu}
             >
               Preguntas frecuentes
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link
+              to='/forum'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              Preguntas y Sugerencias 
             </Link>
           </li>
         </ul>
