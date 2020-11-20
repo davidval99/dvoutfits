@@ -22,8 +22,8 @@ const PublicityCard = () => {
     <>
       {users.map((user) => (
         <div className="card1">
-          <a href="/">
-            <img path="/faq" src={user.image} alt="" />{" "}
+          <a href="/promo">
+            <img src={user.image} alt="" />{" "}
           </a>
           <div></div>
         </div>
