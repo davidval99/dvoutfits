@@ -13,11 +13,12 @@ import Conformacion from "./components/Conformacion";
 import FAQ from "./components/JsFiles/FAQ";
 import ProductForm from "./components/JsFiles/ProductForm";
 import ProductInsert from "./components/JsFiles/ProductCRUD";
-
+import Login from './components/JsFiles/LoginCRUD';
+import Signin from './components/JsFiles/SigninCRUD';
+import ContactInsert from './components/JsFiles/ContactCRUD';
 import { Container, Flex, Spinner, VStack } from "@chakra-ui/react";
 import CommentSection from "./components/JsFiles/CommentSection";
-import Login from "./components/JsFiles/LoginCRUD";
-import Signin from "./components/JsFiles/SigninCRUD";
+
 
 function App() {
   const openMenu = () => {
@@ -29,9 +30,27 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="grid-container">
-        <Navbar />
 
+    
+    <div className="grid-container">
+      <Navbar />
+
+    <main className="main">
+      <div className="content">
+      <Route path="/" exact={true} component={HomePage} />
+      <Route path="/nosotros/historia" component={Historia} />
+      <Route path="/nosotros/nuestrosProductos" component={OurProductsDescription}/>
+      <Route path="/nosotros/ubicacion" component={Ubicacion} />
+      <Route path="/nosotros/conformacion-empresa" component={Conformacion} />
+      <Route path="/faq" component={FAQ} />
+      <Route path= "/registrarProducto" component={ProductInsert} />
+      <Route path="/nosotros/ubicacion" component={Ubicacion} />
+      <Route path="/login" component={Login} />
+      <Route path="/signin" component={Signin} />
+      <Route path="/contact" component={ContactInsert} />
+      <div className="grid-container">
+    
+        <Navbar />
         <main className="main">
           <div className="content">
             <Route path="/" exact={true} component={HomePage} />
