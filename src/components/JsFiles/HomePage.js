@@ -9,7 +9,6 @@ function HomePage() {
   return (
     <BrowserRouter>
       <CarrouselComponent />
-      <PublicityComponent />
 
       <ul className="products">
         <li>
@@ -85,6 +84,7 @@ function HomePage() {
           </div>
         </li>
       </ul>
+      <PublicityComponent />
     </BrowserRouter>
   );
 }
