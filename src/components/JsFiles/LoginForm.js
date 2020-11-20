@@ -1,49 +1,46 @@
-import React, {useState} from "react";
-
+import React, {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import '../CssFiles/SigninForm.css';
+import Inicio from './Inicio';
+import LinkButton from './LinkButton';
 
 const LoginForm = (props) => {
     
-    const initialStateValues = {
-       
-        email: '',
-        password: '',
-    };
+    const {
+        email,
+        setEmail,
+        password,
+        setPassword,
+        handleLogin,
+        hasAccount,
+        setHasAccount,
+        emailError,
+        passwordError,
+    } = props;
 
-    const [values, setValues] = useState(initialStateValues);
-
-    const inputChange = (e) =>{
-        const {name, value } = e.target;
-        setValues({...values, [name]: value}) //con los tres puntos copia
-    };
-
-    const insertUser = (e) => {
-        e.preventDefault();
-        console.log(values);
-        props.addOrEditUser(values)
-    };
 
     return (
-        <form className="form" onSubmit={insertUser}>
+        <form className="form">
             <div className="form-container">
                 <h1 className="formName"> Iniciar sesión </h1>
                 <li>
                     <label htmlFor="email">
                         Email
                     </label>
-                    <input type="email" name="usuario" >
+                    <input type="email"  autoFocus required value={email} onChange={(e) => setEmail(e.target.value)} >
                     </input>
+                    <p className="errorMsg">{emailError}</p>
                 </li>
                 <li>
                     <label htmlFor="password">Contraseña</label>
-                    <input type="password" name="password">
+                    <input type="password"  required value={password} onChange={(e) => setPassword(e.target.value)}>
                     </input>
+                    <p className="errorMsg">{passwordError}</p>
                 </li>
-                <button className="insert" id="insert">
-                    Iniciar
-                </button>
-            
+                <div>
+                    <LinkButton to='/' className="insert" id="insert" onClick={handleLogin}>Iniciar</LinkButton>
+                </div>
+                
                 <li>
                     <Link to="/signin">Registrarse</Link>
                 </li>
