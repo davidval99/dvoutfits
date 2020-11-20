@@ -15,8 +15,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.wrapper {
-  background-color: #ffd7d7;
+.wrapper1 {
+  background-color: #ffffff;
   max-width: 1240px;
   width: 100%;
   min-height: 300px;
@@ -27,41 +27,41 @@ code {
   padding: 0 20px;
 }
 .app {
-  padding-top: 50px;
+  padding-top: 20px;
   width: 100%;
   display: flex;
   overflow: hidden;
 }
-.card {
+.card1 {
   min-width: 25%;
   overflow: hidden;
   padding: 5px;
   border: 3px solid #ffd7d7;
 }
-.card img {
+.card1 img {
   width: 100%;
-  height: 252px;
+  height: 500px;
   display: block;
   object-fit: cover;
 }
-.card h2 {
+.card1 h2 {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-top: 10px;
   opacity: 0.8;
 }
-.card p {
+.card1 p {
   opacity: 0.7;
   line-height: 1.5;
   margin: 5px 0;
 }
-.card a {
+.card1 a {
   text-decoration: none;
   display: inline-block;
   margin: 10px 0;
   color: teal;
 }
-.card a:hover {
+.card1 a:hover {
   color: crimson;
 }
 .prev,

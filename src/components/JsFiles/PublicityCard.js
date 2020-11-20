@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
 import { db } from "./Firebase";
 
-const Card = () => {
+const PublicityCard = () => {
   const [users, setUsers] = React.useState([]);
   useEffect(() => {
     const fetchUsers = async () => {
-      const usersCollection = await db.collection("promo").get();
+      const usersCollection = await db
+        .collection("publicityBanner")
+        .limit(1)
+        .get();
       setUsers(
         usersCollection.docs.map((doc) => {
           return doc.data();
@@ -18,17 +21,15 @@ const Card = () => {
   return (
     <>
       {users.map((user) => (
-        <div className="card">
-          <img href="/" src={user.image} alt="" />
-          <div>
-            <h2>{user.name}</h2>
-            <p>{user.description}</p>
-            <a href="/">Ver Oferta</a>
-          </div>
+        <div className="card1">
+          <a href="/">
+            <img href="/" src={user.image} alt="" />{" "}
+          </a>
+          <div></div>
         </div>
       ))}
     </>
   );
 };
 
-export default Card;
+export default PublicityCard;
