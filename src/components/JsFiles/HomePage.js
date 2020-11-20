@@ -4,19 +4,18 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import Home from '../Home/Home';
 import CarrouselComponent from './CarrouselComponent';
 import ProductPreview from "./productPreview";
+import PublicityComponent from "./PublicityComponent";
 
 
-function HomePage(){
-    return(
-        
-        <BrowserRouter>
-        < CarrouselComponent />
+function HomePage() {
+  return (
+    <BrowserRouter>
+      <CarrouselComponent />
         < ProductPreview  />
-        </BrowserRouter>
+      <PublicityComponent />
+    </BrowserRouter>
+  );
 
-    )
-  
 }
-
 
 export default HomePage;

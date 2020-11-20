@@ -22,6 +22,7 @@ const ProductForm = (props) => {
         e.preventDefault();
         console.log(values);
         props.addOrEditProduct(values)
+        setValues({...initialStateValues})
     };
 
     return (
@@ -29,17 +30,17 @@ const ProductForm = (props) => {
             <div className="form-group">
                 <h1 className="formName"> Registrar Nuevo Producto </h1>
                 <text> Nombre </text>
-                <input type="text" name="name" onChange={inputChange}/>
-                <text> Codigo </text>
-                <input type="text" name="code" onChange={inputChange}/>
-                <text> Categoria </text>
-                <input type="text" name="category" onChange={inputChange}/>
-                <text> Descripcion </text>
-                <textarea name="description" onChange={inputChange}/>
+                <input type="text" name="name" onChange={inputChange} value={values.name}/>
+                <text> Código </text>
+                <input type="text" name="code" onChange={inputChange} value={values.code}/>
+                <text> Categoría </text>
+                <input type="text" name="category" onChange={inputChange} value={values.category}/>
+                <text> Descripción </text>
+                <textarea name="description" onChange={inputChange} value={values.description}/>
                 <text> Precio </text>
-                <input type="text" name="price" onChange={inputChange}/>
+                <input type="text" name="price" onChange={inputChange} value={values.price}/>
                 <text> Cantidad </text>
-                <input type="text" name="quantity" onChange={inputChange}/>
+                <input type="text" name="quantity" onChange={inputChange} value={values.quantity}/>
                 <button className="insert" id="insert">
                     Insertar
                 </button>

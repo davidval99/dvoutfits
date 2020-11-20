@@ -1,0 +1,53 @@
+.contactForm{
+    width: 500px;
+    margin: auto;
+
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    border-radius: 0.5rem;
+    border: 0.3rem #c0c0c0 solid;
+}
+
+.formName{
+    text-align: center;
+    color: lightpink;
+}
+
+text{
+    font-size: 15px;
+    margin: auto;
+
+
+}
+
+input, textarea{
+    width: 100%;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    padding: 8px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea{
+    min-height: 100px;
+    max-height: 200px;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.send{
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+    alignment: center;
+    background-color: blanchedalmond;
+}
+
+@media (max-width: 480px) {
+    .contactForm{
+        width: 100%;
+    }
+}

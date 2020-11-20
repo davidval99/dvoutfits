@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import "../CssFiles/Header.css";
 import SocialFollow from "./SocialFollow";
+import { Link } from 'react-router-dom';
 import Login from "./LoginForm";
 
 function Header() {
@@ -9,7 +10,7 @@ function Header() {
   return (
     <>
     <header className="header">
-    <img className="logoD" src="/images/dvLogo.svg" />
+      <Link to='/'>{<img className="logoD" src="/images/dvLogo.svg"/>}</Link>
     <SocialFollow />
     <div className="header-links">
         <a href="cart.html">Cart</a>

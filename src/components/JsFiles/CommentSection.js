@@ -12,7 +12,7 @@ const CommentSection = () => {
     // change in the datastore (https://firebase.google.com/docs/firestore/query-data/listen#view_changes_between_snapshots)
 
     db.collection("posts")
-      .orderBy("createdAt", "desc")
+      .orderBy("createdAt", "asc")
       .onSnapshot((querySnapshot) => {
         const _posts = [];
 

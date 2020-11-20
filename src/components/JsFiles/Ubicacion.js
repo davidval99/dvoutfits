@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './Ubicacion.css';
+import '../CssFiles/Ubicacion.css';
 
  
 class Ubicacion extends Component {

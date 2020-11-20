@@ -1,18 +1,92 @@
-import React from "react";
-import Signin from "./SigninForm";
-import { db } from './Firebase';
+import React , {useState, useEffect} from "react";
+import fb from './Firebase';
+import Signin from './SigninForm';
+import Inicio from "./Inicio";
+import Home from './HomePage';
+import './LoginCRUD';
 
-const User = () => {
+const SigninCRUD = () => {
 
-    const addOrEditUser = async (userObject) => {
-        await db.collection("User").doc().set(userObject);
+    const [user, setUser] = useState("");
+    const [name, setName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [emailError, setEmailError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+    const [hasAccount, setHasAccount] = useState(false);
+    
+
+
+    const clearInputs = () => {
+        setEmail('');
+        setPasswordError('');
     }
+    const clearErrors = () => {
+        setEmailError('');
+        setPasswordError('');
+    }
+   
+    const handleSignIn = () => {
+        clearErrors();
+        fb
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .catch((err) => {
+                switch (err.code) {
+                    case "auth/email-already-in-use":
+                    case "auth/invalid-email":
+                        setEmailError(err.message);
+                        break;
+                    case "auth/weak.password":
+                        setPasswordError(err.message);
+                        break;
+
+                }
+            });}
+
+    const authListener = () => {
+        fb.auth().onAuthStateChanged((user) => {
+            if (user) {
+                clearInputs();
+                setUser(user);
+            } else {
+                setUser("");
+            }
+        });
+    };
+
+    useEffect(() => {
+        authListener();
+    }, []);
 
     return (
         <div>
-            <Signin addOrEditUser={addOrEditUser} />
-        </div>
-    )
+        {user ? (
+             //<Home handleLogout={handleLogout} />
+             <Inicio  />
+             
+        ) : (
+            <Signin 
+            name = {name}
+            setName = {setName}
+            lastName = {lastName}
+            setLastName = {setLastName}
+            email ={email}
+            setEmail = {setEmail}
+            password = {password}
+            setPassword = {setPassword}
+            handleSignIn = {handleSignIn}
+            hasAccount = {hasAccount}
+            setHasAccount = {setHasAccount}
+            emailError = {emailError}
+            passwordError ={passwordError}
+          />
+        )}
+    </div>
+        
+ 
+    );
 
 };
-export default User;
+export default SigninCRUD;
