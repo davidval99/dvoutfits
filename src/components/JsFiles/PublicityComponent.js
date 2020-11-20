@@ -1,11 +1,11 @@
 import React from "react";
-import Card from "./Card";
+import PublicityCard from "./PublicityCard";
 import Nav from "./Nav";
-import "../CssFiles/Carrousel.css";
+import "../CssFiles/PublicityComponent.css";
 import Home from "../Home/Home";
 import { BrowserRouter } from "react-router-dom";
 
-class CarrouselComponent extends React.Component {
+class PublicityComponent extends React.Component {
   state = {
     data: [],
   };
@@ -30,16 +30,14 @@ class CarrouselComponent extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="wrapper">
+        <div className="wrapper1">
           <div className="app" ref={this.myRef}>
-            <Card />
+            <PublicityCard />
           </div>
-
-          <Nav prev={this.prevClick} next={this.nextClick} />
         </div>
       </BrowserRouter>
     );
   }
 }
 
-export default CarrouselComponent;
+export default PublicityComponent;
