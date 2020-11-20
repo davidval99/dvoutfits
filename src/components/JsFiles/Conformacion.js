@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import './Conformacion.css';
+import '../CssFiles/Conformacion.css';
 
- 
 class Conformacion extends Component {
   render() {
     return (
