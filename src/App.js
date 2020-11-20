@@ -40,7 +40,7 @@ function App() {
       <Route path="/nosotros/ubicacion" component={Ubicacion} />
       <Route path="/nosotros/conformacion-empresa" component={Conformacion} />
       <Route path="/faq" component={FAQ} />
-      <Route path= "/registerProduct" component={ProductInsert} />
+      <Route path= "/registrarProducto" component={ProductInsert} />
       <Route path="/nosotros/ubicacion" component={Ubicacion} />
       <Route path="/login" component={Login} />
       <Route path="/signin" component={Signin} />

@@ -20,6 +20,7 @@ const ContactForm = (props) => {
         e.preventDefault();
         console.log(values);
         props.addOrEditConsult(values)
+        setValues({...initialStateValues})
     };
 
     return (
@@ -27,13 +28,13 @@ const ContactForm = (props) => {
             <div className="form-group">
                 <h1 className="formName"> Contáctenos </h1>
                 <text> Nombre </text>
-                <input type="text" name="name" onChange={inputChange}/>
+                <input type="text" name="name" onChange={inputChange} value={values.name}/>
                 <text> Correo electrónico </text>
-                <input type="text" name="email" onChange={inputChange}/>
+                <input type="text" name="email" onChange={inputChange} value={values.email}/>
                 <text> Número de teléfono </text>
-                <input type="text" name="phone_number" onChange={inputChange}/>
+                <input type="text" name="phone_number" onChange={inputChange} value={values.phone_number}/>
                 <text> Mensaje </text>
-                <textarea name="message" onChange={inputChange}/>
+                <textarea name="message" onChange={inputChange} value={values.message}/>
                 <button className="send" id="send">
                     ENVIAR
                 </button>
