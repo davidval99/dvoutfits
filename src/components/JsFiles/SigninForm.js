@@ -60,6 +60,7 @@ const SigninForm = (props) => {
                 <li>
                     <Link to="/login">Iniciar sesión</Link>
                 </li>  
+                
             </div>
         </form>
     )

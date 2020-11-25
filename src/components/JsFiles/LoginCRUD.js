@@ -1,89 +1,80 @@
-import React , {useState, useEffect} from "react";
+import React , {useState, useEffect, Component} from "react";
 import fb from './Firebase';
 import LoginForm from "./LoginForm";
 import Inicio from "./Inicio";
 import Home from './HomePage';
+import Header from './Header';
+import LinkButton from './LinkButton';
+import '../CssFiles/LoginForm.css';
 
-const LoginCRUD = () => {
-    const [user, setUser] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [emailError, setEmailError] = useState("");
-    const [passwordError, setPasswordError] = useState("");
-    const [hasAccount, setHasAccount] = useState(false);
+import { Link } from 'react-router-dom';
 
-    const clearInputs = () => {
-        setEmail('');
-        setPasswordError('');
+import { signInWithGoogle } from './Firebase';
+import { auth } from './Firebase';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faFacebookSquare,
+    faInstagram,
+    faGoogle
+  } from "@fortawesome/free-brands-svg-icons";
+
+  
+
+  class App extends React.Component {
+
+    constructor() {
+      super();
+  
+      this.state = {
+        currentUser: null
+      };
     }
-
-    const clearErrors = () => {
-        setEmailError('');
-        setPasswordError('');
+  
+    unsubscribeFromAuth = null;
+  
+    componentDidMount() {
+      this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+        this.setState({ currentUser: user });
+      });
     }
-    const handleLogin = () => {
-        clearErrors();
-        fb
-            .auth()
-            .signInWithEmailAndPassword(email, password)
-            .catch((err) => {
-                switch (err.code) {
-                    case "auth/invalid-email":
-                    case "auth/user-disable":
-                    case "auth/user-not-found":
-                        setEmailError(err.message);
-                        break;
-                    case "auth/wrong.password":
-                        setPasswordError(err.message);
-                        break;
-
-                }
-            });
+  
+    componentWillUnmount() {
+      this.unsubscribeFromAuth();
     }
-
-    const handleLogout = () => {
-        fb.auth().signOut();
-    };
-
-    const authListener = () => {
-        fb.auth().onAuthStateChanged((user) => {
-           if (user) {
-               clearInputs();
-               setUser(user);
-           } else {
-               setUser("");
-           }
-       });
-   };
-
-   useEffect(() => {
-       authListener();
-   }, []);
-
-   return (
-       <div>
-           {user ? (
-               
-                //<Home handleLogout={handleLogout} />
-                <Inicio handleLogout={handleLogout} />
-                
-           ) : (
-            <LoginForm 
-                email ={email}
-                setEmail = {setEmail}
-                password = {password}
-                setPassword = {setPassword}
-                handleLogin = {handleLogin}
-                hasAccount = {hasAccount}
-                setHasAccount = {setHasAccount}
-                emailError = {emailError}
-                passwordError ={passwordError}
-             />
-           )}
-       </div>
-
-   );
-
-
-};
-export default LoginCRUD;
+  
+    render() {
+      return (
+        <div className='user-info'>
+          {
+  
+            this.state.currentUser ?
+  
+              (<div>
+                <div>
+                  <img src={this.state.currentUser.photoURL} />
+                </div>
+                <div>Name: {this.state.currentUser.displayName}</div>
+                <div>Email: {this.state.currentUser.email}</div>
+  
+                <button onClick={() => auth.signOut()}>LOG OUT</button>
+              </div>
+              ) :
+              
+              <form className="form">
+                  <div className="form-container">
+                    <li>
+                      <button className="insert" onClick={signInWithGoogle}>SIGN IN WITH GOOGLE</button>
+                    </li>
+                  </div>
+              </form>
+              
+    
+  
+          }
+        </div >
+      );
+    }
+  }
+  
+  
+  export default App;

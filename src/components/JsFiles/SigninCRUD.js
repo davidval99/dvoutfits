@@ -26,6 +26,16 @@ const SigninCRUD = () => {
         setEmailError('');
         setPasswordError('');
     }
+
+    const handleAuth = () => {
+        const provider = new fb.auth.GoogleAuthProvider()
+
+        fb.auth().signInWithPopup(provider)
+            .then(result => console.log(`${result.user.email} ha iniciado sesión`))
+            .catch(error => console.error(`Error: ${error.code} : ${error.message}`))
+            
+            
+    }
    
     const handleSignIn = () => {
         clearErrors();
@@ -64,7 +74,7 @@ const SigninCRUD = () => {
         <div>
         {user ? (
              //<Home handleLogout={handleLogout} />
-             <Inicio  />
+             <Inicio />
              
         ) : (
             <Signin 
