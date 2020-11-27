@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, Component} from "react";
 import { Link } from 'react-router-dom';
 import '../CssFiles/SigninForm.css';
 import Inicio from './Inicio';
 import LinkButton from './LinkButton';
+
 
 const LoginForm = (props) => {
     
@@ -12,6 +13,7 @@ const LoginForm = (props) => {
         password,
         setPassword,
         handleLogin,
+        login,
         hasAccount,
         setHasAccount,
         emailError,
@@ -38,9 +40,15 @@ const LoginForm = (props) => {
                     <p className="errorMsg">{passwordError}</p>
                 </li>
                 <div>
-                    <LinkButton to='/' className="insert" id="insert" onClick={handleLogin}>Iniciar</LinkButton>
+                    <button  className="insert" id="insert" onClick={handleLogin}>Iniciar</button>
                 </div>
-                
+                <li>
+                    <button
+                        className="insert" id="insert" 
+                        onClick={login}>
+                        Iniciar con Google
+                    </button>
+                </li>          
                 <li>
                     <Link to="/signin">Registrarse</Link>
                 </li>

@@ -11,11 +11,11 @@ function Header() {
     <>
     <header className="header">
       <Link to='/'>{<img className="logoD" src="/images/dvLogo.svg"/>}</Link>
-    <SocialFollow />
-    <div className="header-links">
-        <a href="cart.html">Cart</a>
-        <a href="Login">Sign In</a>
-    </div>
+      <SocialFollow />
+      <div className="header-links">
+          <a href="cart.html">Cart</a>
+          <a href="Login">Sign In</a>
+      </div>
 </header>
 
 

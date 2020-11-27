@@ -1,89 +1,74 @@
-import React , {useState, useEffect} from "react";
+import React , {useState, useEffect, Component} from "react";
 import fb from './Firebase';
 import LoginForm from "./LoginForm";
 import Inicio from "./Inicio";
 import Home from './HomePage';
+import Header from './Header';
+import LinkButton from './LinkButton';
+import '../CssFiles/LoginForm.css';
 
-const LoginCRUD = () => {
-    const [user, setUser] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [emailError, setEmailError] = useState("");
-    const [passwordError, setPasswordError] = useState("");
-    const [hasAccount, setHasAccount] = useState(false);
+import { Link } from 'react-router-dom';
 
-    const clearInputs = () => {
-        setEmail('');
-        setPasswordError('');
+import { signInWithGoogle } from './Firebase';
+import { auth } from './Firebase';
+  
+
+class App extends React.Component {
+
+    constructor() {
+      super();
+  
+      this.state = {
+        currentUser: null
+      };
     }
-
-    const clearErrors = () => {
-        setEmailError('');
-        setPasswordError('');
+  
+    unsubscribeFromAuth = null;
+  
+    componentDidMount() {
+      this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+        this.setState({ currentUser: user });
+      });
     }
-    const handleLogin = () => {
-        clearErrors();
-        fb
-            .auth()
-            .signInWithEmailAndPassword(email, password)
-            .catch((err) => {
-                switch (err.code) {
-                    case "auth/invalid-email":
-                    case "auth/user-disable":
-                    case "auth/user-not-found":
-                        setEmailError(err.message);
-                        break;
-                    case "auth/wrong.password":
-                        setPasswordError(err.message);
-                        break;
-
-                }
-            });
+  
+    componentWillUnmount() {
+      this.unsubscribeFromAuth();
     }
-
-    const handleLogout = () => {
-        fb.auth().signOut();
-    };
-
-    const authListener = () => {
-        fb.auth().onAuthStateChanged((user) => {
-           if (user) {
-               clearInputs();
-               setUser(user);
-           } else {
-               setUser("");
-           }
-       });
-   };
-
-   useEffect(() => {
-       authListener();
-   }, []);
-
-   return (
-       <div>
-           {user ? (
+  
+    render() {
+      return (
+        <div className='user-info'>
+          {
+  
+            this.state.currentUser ?
+  
+              (<form className="form">
+                <div className="form-container">
+                <h1 className="formName"> Bienvenido</h1>
+                  <div>
+                    <img src={this.state.currentUser.photoURL} />
+                  </div>
+                  <li>Nombre: {this.state.currentUser.displayName}</li>
+                  <li>Email: {this.state.currentUser.email}</li>
+    
+                  <button className="insert"onClick={() => auth.signOut()}>LOG OUT</button>
+                </div>
+              </form>
+              ) :
+  
+                <div  justify-content="center" className="form-container">
+                  <li>
+                  <h1 className="formName"> Iniciar sesión </h1>
+                  </li>
+                  
+                <button  className="insert"onClick={signInWithGoogle}>Continuar con Google</button>
                
-                //<Home handleLogout={handleLogout} />
-                <Inicio handleLogout={handleLogout} />
-                
-           ) : (
-            <LoginForm 
-                email ={email}
-                setEmail = {setEmail}
-                password = {password}
-                setPassword = {setPassword}
-                handleLogin = {handleLogin}
-                hasAccount = {hasAccount}
-                setHasAccount = {setHasAccount}
-                emailError = {emailError}
-                passwordError ={passwordError}
-             />
-           )}
-       </div>
-
-   );
-
-
-};
-export default LoginCRUD;
+                </div>
+          }
+        </div >
+      );
+    }
+  }
+  
+  
+  export default App;

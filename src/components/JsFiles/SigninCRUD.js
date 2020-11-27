@@ -8,8 +8,6 @@ import './LoginCRUD';
 const SigninCRUD = () => {
 
     const [user, setUser] = useState("");
-    const [name, setName] = useState("");
-    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState("");
@@ -64,14 +62,10 @@ const SigninCRUD = () => {
         <div>
         {user ? (
              //<Home handleLogout={handleLogout} />
-             <Inicio  />
+             <Inicio />
              
         ) : (
             <Signin 
-            name = {name}
-            setName = {setName}
-            lastName = {lastName}
-            setLastName = {setLastName}
             email ={email}
             setEmail = {setEmail}
             password = {password}
