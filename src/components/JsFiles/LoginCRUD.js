@@ -11,16 +11,9 @@ import { Link } from 'react-router-dom';
 
 import { signInWithGoogle } from './Firebase';
 import { auth } from './Firebase';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faFacebookSquare,
-    faInstagram,
-    faGoogle
-  } from "@fortawesome/free-brands-svg-icons";
-
   
 
-  class App extends React.Component {
+class App extends React.Component {
 
     constructor() {
       super();
@@ -49,27 +42,28 @@ import {
   
             this.state.currentUser ?
   
-              (<div>
-                <div>
-                  <img src={this.state.currentUser.photoURL} />
-                </div>
-                <div>Name: {this.state.currentUser.displayName}</div>
-                <div>Email: {this.state.currentUser.email}</div>
-  
-                <button onClick={() => auth.signOut()}>LOG OUT</button>
-              </div>
-              ) :
-              
-              <form className="form">
-                  <div className="form-container">
-                    <li>
-                      <button className="insert" onClick={signInWithGoogle}>SIGN IN WITH GOOGLE</button>
-                    </li>
+              (<form className="form">
+                <div className="form-container">
+                <h1 className="formName"> Bienvenido</h1>
+                  <div>
+                    <img src={this.state.currentUser.photoURL} />
                   </div>
-              </form>
-              
+                  <li>Nombre: {this.state.currentUser.displayName}</li>
+                  <li>Email: {this.state.currentUser.email}</li>
     
+                  <button className="insert"onClick={() => auth.signOut()}>LOG OUT</button>
+                </div>
+              </form>
+              ) :
   
+                <div  justify-content="center" className="form-container">
+                  <li>
+                  <h1 className="formName"> Iniciar sesión </h1>
+                  </li>
+                  
+                <button  className="insert"onClick={signInWithGoogle}>Continuar con Google</button>
+               
+                </div>
           }
         </div >
       );

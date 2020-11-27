@@ -8,8 +8,6 @@ import './LoginCRUD';
 const SigninCRUD = () => {
 
     const [user, setUser] = useState("");
-    const [name, setName] = useState("");
-    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState("");
@@ -25,16 +23,6 @@ const SigninCRUD = () => {
     const clearErrors = () => {
         setEmailError('');
         setPasswordError('');
-    }
-
-    const handleAuth = () => {
-        const provider = new fb.auth.GoogleAuthProvider()
-
-        fb.auth().signInWithPopup(provider)
-            .then(result => console.log(`${result.user.email} ha iniciado sesión`))
-            .catch(error => console.error(`Error: ${error.code} : ${error.message}`))
-            
-            
     }
    
     const handleSignIn = () => {
@@ -78,10 +66,6 @@ const SigninCRUD = () => {
              
         ) : (
             <Signin 
-            name = {name}
-            setName = {setName}
-            lastName = {lastName}
-            setLastName = {setLastName}
             email ={email}
             setEmail = {setEmail}
             password = {password}
