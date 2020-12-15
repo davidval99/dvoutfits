@@ -15,12 +15,13 @@ import ProductForm from "./components/JsFiles/ProductForm";
 import ProductInsert from "./components/JsFiles/ProductCRUD";
 import Login from "./components/JsFiles/LoginCRUD";
 import Signin from "./components/JsFiles/SigninCRUD";
-
-import Inicio from './components/JsFiles/Inicio';
+import PromoCrud from "./components/JsFiles/Admin/ProductAdminCrud";
+import PromoAdminCrud from "./components/JsFiles/Admin/PromoAdminCrud";
+import BannerCrud from "./components/JsFiles/Admin/AdvertismentAdminCrud";
+import Inicio from "./components/JsFiles/Inicio";
 import ContactInsert from "./components/JsFiles/ContactCRUD";
 import { Container, Flex, Spinner, VStack } from "@chakra-ui/react";
 import CommentSection from "./components/JsFiles/CommentSection";
-
 
 function App() {
   const openMenu = () => {
@@ -44,7 +45,10 @@ function App() {
               component={OurProductsDescription}
             />
             <Route path="/nosotros/ubicacion" component={Ubicacion} />
-            <Route path="/nosotros/conformacion-empresa" component={Conformacion} />
+            <Route
+              path="/nosotros/conformacion-empresa"
+              component={Conformacion}
+            />
             <Route path="/faq" component={FAQ} />
             <Route path="/forum" component={CommentSection} />
             <Route path="/registrarProducto" component={ProductInsert} />
@@ -53,7 +57,9 @@ function App() {
             <Route path="/signin" component={Signin} />
             <Route path="/inicio" component={Inicio} />
             <Route path="/contact" component={ContactInsert} />
-
+            <Route path="/PromoCrud" component={PromoCrud} />
+            <Route path="/PromoAdminCrud" component={PromoAdminCrud} />
+            <Route path="/AdvertisementCrud" component={BannerCrud} />
           </div>
         </main>
 
