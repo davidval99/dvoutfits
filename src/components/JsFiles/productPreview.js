@@ -1,43 +1,112 @@
-import React, { useEffect } from "react";
-import { db } from "./Firebase";
-import "../CssFiles/productPreview.css";
+import React, { Component } from "react";
 
-const ProductPreview = () => {
-    const [products, setProducts] = React.useState([]);
-    useEffect(() => {
-        const fetchProducts = async () => {
-            const productsCollection = await db.collection("Products").get();
-            setProducts(
-                productsCollection.docs.map((doc) => {
-                    return doc.data();
-                })
-            );
-        };
-        fetchProducts();
-    }, []);
+import Fade from "react-reveal/Fade";
+import Modal from "react-modal";
+import Zoom from "react-reveal/Zoom";
+import { db, storage } from "./Firebase";
+import { connect } from "react-redux";
 
+class Products extends Component {
+  constructor() {
+    super();
+    this.state = {
+      ListProduct: [],
+      name: "",
+      description: "",
+      price: "",
+      id: "",
+      image: "",
+      bandera: true,
+      product: null,
+    };
+  }
+  componentDidMount() {
+    this.getProducts();
+  }
+
+  async getProducts() {
+    let list = [];
+    const response = await db.collection("Products").get();
+    response.forEach((document) => {
+      let id = document.id;
+      let name = document.data().name;
+      let description = document.data().description;
+      let price = document.data().price;
+      let image = document.data().image;
+      let obj = { id, name, description, price, image };
+      list.push(obj);
+    });
+    this.setState({ ListProduct: list });
+  }
+
+  openModal = (Product) => {
+    this.setState({ Product });
+  };
+  closeModal = () => {
+    this.setState({ Product: null });
+  };
+  render() {
+    const { Product } = this.state;
     return (
-        <>
-            <div className="catalog">
-                <div className="title"> Articulos Destacados </div>
-                <ul className="products">
-                    {products.map((product) => (
-                    <li>
-                        <div className="product">
-                            <a href={"product.html"} >
-                                <img className="product-image"  src={product.image} />
-                            </a>
-                            <div className="pro-name">
-                                <a>{product.name}</a>
-                            </div>
-                            <div className="product-price">Precio: ₡{product.price}</div>
-                        </div>
-                    </li>
-                    ))}
-                </ul>
-            </div>
-        </>
-    );
-};
+      <div>
+        <ul className="products">
+          {this.state.ListProduct.map((Product) => (
+            <li key={Product.id}>
+              <div className="product">
+                <a
+                  href={"#" + Product.id}
+                  onClick={() => this.openModal(Product)}
+                >
+                  <img
+                    className="product-image"
+                    src={Product.image}
+                    alt={Product.name}
+                  ></img>
+                </a>
+                <div className="pro-name">
+                  <p>{Product.name}</p>
+                </div>
 
-export default ProductPreview;
+                <div className="product-price">
+                  <div>{Product.price}</div>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        {Product && (
+          <Modal isOpen={true} onRequestClose={this.closeModal}>
+            <Zoom>
+              <button className="close-modal" onClick={this.closeModal}>
+                x
+              </button>
+              <div className="product-details-modal">
+                <img
+                  className="product-image"
+                  src={Product.image}
+                  alt={Product.title}
+                ></img>
+                <div className="product-details-description">
+                  <p>
+                    <strong>{Product.name}</strong>
+                  </p>
+                  <p>{Product.description}</p>
+                  <p></p>
+                  <br></br>
+                  <div className="product-price-modal">
+                    <div>{Product.price}</div>
+                    <button className="button primary" onClick={() => {}}>
+                      Añadir al Carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </Zoom>
+          </Modal>
+        )}
+      </div>
+    );
+  }
+}
+export default Products;
