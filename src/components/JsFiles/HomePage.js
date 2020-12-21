@@ -9,16 +9,20 @@ import Cart from "./Cart";
 export default class HomeScreen extends Component {
   render() {
     return (
-      <div>
-        <div className="content">
-          <div className="main">
-            <Products></Products>
-          </div>
-          <div className="sidebar">
-            <Cart />
+      <BrowserRouter>
+        <CarrouselComponent></CarrouselComponent>
+        <div>
+          <div className="content">
+            <div className="main">
+              <Products></Products>
+            </div>
+            <div className="sidebar">
+              <Cart />
+            </div>
           </div>
         </div>
-      </div>
+        <PublicityComponent></PublicityComponent>
+      </BrowserRouter>
     );
   }
 }

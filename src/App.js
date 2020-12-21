@@ -59,8 +59,8 @@ function App() {
               <Route path="/signin" component={Signin} />
               <Route path="/inicio" component={Inicio} />
               <Route path="/contact" component={ContactInsert} />
-              <Route path="/PromoCrud" component={PromoCrud} />
-              <Route path="/PromoAdminCrud" component={PromoAdminCrud} />
+              <Route path="/ProductCrud" component={PromoCrud} />
+              <Route path="/PromoCrud" component={PromoAdminCrud} />
               <Route path="/AdvertisementCrud" component={BannerCrud} />
             </div>
           </main>

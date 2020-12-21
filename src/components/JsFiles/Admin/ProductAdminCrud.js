@@ -50,6 +50,7 @@ class ProductCrud extends Component {
       await db.collection("Products").add(obj);
       this.getProducts();
       this.setState({ name: "", description: "", price: "", image: "" });
+      alert("Se ha agregado el producto exitosamente");
     } else {
       await db.collection("Products").doc(id).update(obj);
 
@@ -62,12 +63,14 @@ class ProductCrud extends Component {
         id: "",
         bandera: true,
       });
+      alert("Se ha actualizado el producto exitosamente");
     }
   }
 
   async deleteProduct(Product) {
     if (window.confirm("Está seguro que desea eliminar el producto?")) {
       await db.collection("Products").doc(Product.id).delete();
+      alert("Se ha eliminado el producto exitosamente");
       this.getProducts();
     }
   }
