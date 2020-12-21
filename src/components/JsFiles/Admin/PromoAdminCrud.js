@@ -48,6 +48,7 @@ class AdvertisementCrud extends Component {
       await db.collection("promo").add(obj);
       this.getPromos();
       this.setState({ name: "", description: "", image: "" });
+      alert("Se ha agregado la promoción exitosamente");
     } else {
       await db.collection("promo").doc(id).update(obj);
 
@@ -59,12 +60,14 @@ class AdvertisementCrud extends Component {
         id: "",
         bandera: true,
       });
+      alert("Se ha actualizado la promoción exitosamente");
     }
   }
 
   async deletePromo(Promo) {
     if (window.confirm("Está seguro que desea eliminar la promoción?")) {
       await db.collection("promo").doc(Promo.id).delete();
+      alert("Se ha eliminado la promoción exitosamente");
       this.getPromos();
     }
   }

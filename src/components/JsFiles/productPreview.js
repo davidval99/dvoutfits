@@ -5,6 +5,9 @@ import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
 import { db, storage } from "./Firebase";
 import { connect } from "react-redux";
+import "../CssFiles/productPreview.css";
+import { fetchProducts } from "../actions/productActions";
+import { addToCart } from "../actions/cartActions";
 
 class Products extends Component {
   constructor() {
@@ -96,7 +99,13 @@ class Products extends Component {
                   <br></br>
                   <div className="product-price-modal">
                     <div>{Product.price}</div>
-                    <button className="button primary" onClick={() => {}}>
+                    <button
+                      className="button primary"
+                      onClick={() => {
+                        this.props.addToCart(Product);
+                        this.closeModal();
+                      }}
+                    >
                       Añadir al Carrito
                     </button>
                   </div>
@@ -109,4 +118,10 @@ class Products extends Component {
     );
   }
 }
-export default Products;
+export default connect(
+  (state) => ({ products: state.products.filteredItems }),
+  {
+    fetchProducts,
+    addToCart,
+  }
+)(Products);

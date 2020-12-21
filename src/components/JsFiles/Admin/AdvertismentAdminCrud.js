@@ -48,6 +48,7 @@ class BannerCrud extends Component {
       await db.collection("publicityBanner").add(obj);
       this.getBanners();
       this.setState({ name: "", description: "", image: "" });
+      alert("Se ha agregado el anuncio exitosamente");
     } else {
       await db.collection("publicityBanner").doc(id).update(obj);
 
@@ -59,12 +60,14 @@ class BannerCrud extends Component {
         id: "",
         bandera: true,
       });
+      alert("Se ha actualizado el anuncio exitosamente");
     }
   }
 
   async deleteBanner(Banner) {
     if (window.confirm("Está seguro que desea eliminar el anuncio?")) {
       await db.collection("publicityBanner").doc(Banner.id).delete();
+      alert("Se ha eliminado el anuncio exitosamente");
       this.getBanners();
     }
   }

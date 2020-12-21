@@ -5,15 +5,25 @@ import Home from "../Home/Home";
 import CarrouselComponent from "./CarrouselComponent";
 import Products from "./productPreview";
 import PublicityComponent from "./PublicityComponent";
-import NavbarAdmin from "./NavbarAdmin";
-function HomePage() {
-  return (
-    <BrowserRouter>
-        <CarrouselComponent />
-        <Products></Products>
-        <PublicityComponent />
-    </BrowserRouter>
-  );
-}
+import Cart from "./Cart";
 
-export default HomePage;
+export default class HomeScreen extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <CarrouselComponent></CarrouselComponent>
+        <div>
+          <div className="content">
+            <div className="main">
+              <Products></Products>
+            </div>
+            <div className="sidebar">
+              <Cart />
+            </div>
+          </div>
+        </div>
+        <PublicityComponent></PublicityComponent>
+      </BrowserRouter>
+    );
+  }
+}
