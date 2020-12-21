@@ -44,7 +44,7 @@ class Cart extends Component {
           <div className="cart cart-header">El carrito está vacío</div>
         ) : (
           <div className="cart cart-header">
-            Tienes {cartItems.length} producto(s) en el carrtio{" "}
+            Tienes {cartItems.length} producto(s) en el carrito{" "}
           </div>
         )}
 
@@ -135,7 +135,7 @@ class Cart extends Component {
                     }}
                     className="button primary"
                   >
-                    Proceed
+                    Proceder
                   </button>
                 </div>
               </div>
@@ -145,7 +145,7 @@ class Cart extends Component {
                     <form onSubmit={this.placeOrder}>
                       <ul className="form-container">
                         <li>
-                          <label>Email</label>
+                          <label>Correo</label>
                           <input
                             name="email"
                             type="email"
@@ -154,7 +154,7 @@ class Cart extends Component {
                           ></input>
                         </li>
                         <li>
-                          <label>Name</label>
+                          <label>Nombre</label>
                           <input
                             name="name"
                             type="text"
@@ -163,7 +163,7 @@ class Cart extends Component {
                           ></input>
                         </li>
                         <li>
-                          <label>Address</label>
+                          <label>Dirección</label>
                           <input
                             name="address"
                             type="text"
@@ -178,7 +178,7 @@ class Cart extends Component {
                               alert("Su orden ha sido colocada");
                             }}
                           >
-                            Checkout
+                            Colocar
                           </button>
                         </li>
                       </ul>
