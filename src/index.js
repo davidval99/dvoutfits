@@ -9,9 +9,7 @@ import "./components/JsFiles/Firebase";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ChakraProvider>
-      <App />
-    </ChakraProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

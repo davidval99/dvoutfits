@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/JsFiles/Navbar";
 import { BrowserRouter, Route, Link } from "react-router-dom";
-
+import store from "./store";
+import { Provider } from "react-redux";
 import { ChakraProvider } from "@chakra-ui/core";
 import Footer from "./components/JsFiles/Footer";
 import Historia from "./components/JsFiles/Historia";
@@ -32,40 +33,42 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <div className="grid-container">
-        <Navbar />
+    <Provider store={store}>
+      <BrowserRouter>
+        <div className="grid-container">
+          <Navbar />
 
-        <main className="main">
-          <div className="content">
-            <Route path="/" exact={true} component={HomePage} />
-            <Route path="/nosotros/historia" component={Historia} />
-            <Route
-              path="/nosotros/nuestrosProductos"
-              component={OurProductsDescription}
-            />
-            <Route path="/nosotros/ubicacion" component={Ubicacion} />
-            <Route
-              path="/nosotros/conformacion-empresa"
-              component={Conformacion}
-            />
-            <Route path="/faq" component={FAQ} />
-            <Route path="/forum" component={CommentSection} />
-            <Route path="/registrarProducto" component={ProductInsert} />
-            <Route path="/nosotros/ubicacion" component={Ubicacion} />
-            <Route path="/login" component={Login} />
-            <Route path="/signin" component={Signin} />
-            <Route path="/inicio" component={Inicio} />
-            <Route path="/contact" component={ContactInsert} />
-            <Route path="/PromoCrud" component={PromoCrud} />
-            <Route path="/PromoAdminCrud" component={PromoAdminCrud} />
-            <Route path="/AdvertisementCrud" component={BannerCrud} />
-          </div>
-        </main>
+          <main className="main">
+            <div className="content">
+              <Route path="/" exact={true} component={HomePage} />
+              <Route path="/nosotros/historia" component={Historia} />
+              <Route
+                path="/nosotros/nuestrosProductos"
+                component={OurProductsDescription}
+              />
+              <Route path="/nosotros/ubicacion" component={Ubicacion} />
+              <Route
+                path="/nosotros/conformacion-empresa"
+                component={Conformacion}
+              />
+              <Route path="/faq" component={FAQ} />
+              <Route path="/forum" component={CommentSection} />
+              <Route path="/registrarProducto" component={ProductInsert} />
+              <Route path="/nosotros/ubicacion" component={Ubicacion} />
+              <Route path="/login" component={Login} />
+              <Route path="/signin" component={Signin} />
+              <Route path="/inicio" component={Inicio} />
+              <Route path="/contact" component={ContactInsert} />
+              <Route path="/PromoCrud" component={PromoCrud} />
+              <Route path="/PromoAdminCrud" component={PromoAdminCrud} />
+              <Route path="/AdvertisementCrud" component={BannerCrud} />
+            </div>
+          </main>
 
-        <Footer />
-      </div>
-    </BrowserRouter>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
