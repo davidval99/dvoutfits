@@ -6,9 +6,11 @@ import CarrouselComponent from "./CarrouselComponent";
 import Products from "./productPreview";
 import PublicityComponent from "./PublicityComponent";
 import NavbarAdmin from "./NavbarAdmin";
-function HomePage() {
+
+function AdminPage() {
   return (
     <BrowserRouter>
+        <NavbarAdmin />
         <CarrouselComponent />
         <Products></Products>
         <PublicityComponent />
@@ -16,4 +18,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default AdminPage;

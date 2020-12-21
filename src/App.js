@@ -8,6 +8,7 @@ import Footer from "./components/JsFiles/Footer";
 import Historia from "./components/JsFiles/Historia";
 import OurProductsDescription from "./components/JsFiles/OurProductsDescription";
 import HomePage from "./components/JsFiles/HomePage";
+import AdminPage from "./components/JsFiles/AdminPage"
 import Ubicacion from "./components/JsFiles/Ubicacion";
 import Conformacion from "./components/JsFiles/Conformacion";
 import FAQ from "./components/JsFiles/FAQ";
@@ -22,6 +23,7 @@ import Inicio from "./components/JsFiles/Inicio";
 import ContactInsert from "./components/JsFiles/ContactCRUD";
 import { Container, Flex, Spinner, VStack } from "@chakra-ui/react";
 import CommentSection from "./components/JsFiles/CommentSection";
+import Header from "./components/JsFiles/Header";
 
 function App() {
   const openMenu = () => {
@@ -34,7 +36,8 @@ function App() {
   return (
     <BrowserRouter>
       <div className="grid-container">
-        <Navbar />
+        <Header/>
+        <Navbar/>
 
         <main className="main">
           <div className="content">
@@ -60,6 +63,7 @@ function App() {
             <Route path="/PromoCrud" component={PromoCrud} />
             <Route path="/PromoAdminCrud" component={PromoAdminCrud} />
             <Route path="/AdvertisementCrud" component={BannerCrud} />
+            <Route path="/AdminPage" component={AdminPage}/>
           </div>
         </main>
 
