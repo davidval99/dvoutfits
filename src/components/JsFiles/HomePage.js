@@ -6,6 +6,7 @@ import CarrouselComponent from "./CarrouselComponent";
 import Products from "./productPreview";
 import PublicityComponent from "./PublicityComponent";
 import Cart from "./Cart";
+
 export default class HomeScreen extends Component {
   render() {
     return (
