@@ -23,6 +23,8 @@ import Inicio from "./components/JsFiles/Inicio";
 import ContactInsert from "./components/JsFiles/ContactCRUD";
 import { Container, Flex, Spinner, VStack } from "@chakra-ui/react";
 import CommentSection from "./components/JsFiles/CommentSection";
+import UserPurchases from "./components/JsFiles/UserPurchases";
+import PayOrder from "./components/JsFiles/PayOrder";
 
 function App() {
   const openMenu = () => {
@@ -51,6 +53,7 @@ function App() {
                 path="/nosotros/conformacion-empresa"
                 component={Conformacion}
               />
+              <Route path="/PayOrder" component={PayOrder} />
               <Route path="/faq" component={FAQ} />
               <Route path="/forum" component={CommentSection} />
               <Route path="/registrarProducto" component={ProductInsert} />
@@ -62,6 +65,7 @@ function App() {
               <Route path="/ProductCrud" component={PromoCrud} />
               <Route path="/PromoCrud" component={PromoAdminCrud} />
               <Route path="/AdvertisementCrud" component={BannerCrud} />
+              <Route path="/UserPurchases" component={UserPurchases} />
             </div>
           </main>
 

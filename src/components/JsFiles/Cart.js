@@ -14,6 +14,8 @@ class Cart extends Component {
     this.state = {
       name: "",
       email: "",
+      currentUserEmail: { storage: localStorage.getItem("localUserEmail") },
+      currentUserName: { storage: localStorage.getItem("localUserName") },
       address: "",
       showCheckout: false,
     };
@@ -149,6 +151,7 @@ class Cart extends Component {
                           <input
                             name="email"
                             type="email"
+                            value={this.state.currentUserEmail.storage}
                             required
                             onChange={this.handleInput}
                           ></input>
@@ -158,6 +161,7 @@ class Cart extends Component {
                           <input
                             name="name"
                             type="text"
+                            value={this.state.currentUserName.storage}
                             required
                             onChange={this.handleInput}
                           ></input>
@@ -165,7 +169,7 @@ class Cart extends Component {
                         <li>
                           <label>Dirección</label>
                           <input
-                            name="address"
+                            name="name"
                             type="text"
                             required
                             onChange={this.handleInput}
