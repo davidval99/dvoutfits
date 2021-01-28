@@ -27,7 +27,8 @@ class UserPurchases extends Component {
     const response = await db
       .collection("Order")
       .where("email", "==", this.props.location.state)
-      .get();
+        .where("paid", "==", "false")
+        .get();
     response.forEach((document) => {
       let id = document.id;
       let address = document.data().address;
