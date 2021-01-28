@@ -18,6 +18,7 @@ import ProductInsert from "./components/JsFiles/ProductCRUD";
 import Login from "./components/JsFiles/LoginCRUD";
 import Signin from "./components/JsFiles/SigninCRUD";
 import PromoCrud from "./components/JsFiles/Admin/ProductAdminCrud";
+import Reportes from "./components/JsFiles/Admin/ReportesAdmin";
 import PromoAdminCrud from "./components/JsFiles/Admin/PromoAdminCrud";
 import BannerCrud from "./components/JsFiles/Admin/AdvertismentAdminCrud";
 import Inicio from "./components/JsFiles/Inicio";
@@ -62,6 +63,7 @@ function App() {
                             <Route path="/inicio" component={Inicio}/>
                             <Route path="/contact" component={ContactInsert}/>
                             <Route path="/ProductCrud" component={PromoCrud}/>
+                            <Route path="/Reportes" component={Reportes}/>
                             <Route path="/PromoCrud" component={PromoAdminCrud}/>
                             <Route path="/AdvertisementCrud" component={BannerCrud}/>
                             <Route path="/AdminPage" component={AdminPage}/>
