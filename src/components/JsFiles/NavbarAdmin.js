@@ -28,6 +28,9 @@ function NavbarAdmin() {
             <li className="nav-item">
               <a href="/AdvertisementCrud" className="nav-links"> Anuncios</a>
             </li>
+            <li className="nav-item">
+              <a href="/Reportes" className="nav-links"> Reportes</a>
+            </li>
           </ul>
         </nav>
       </>
