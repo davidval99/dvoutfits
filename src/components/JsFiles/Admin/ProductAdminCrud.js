@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import ReactFirebaseFileUpload from "./ProductImageUpload";
 
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import NavbarAdmin from "../NavbarAdmin";
 
 class ProductCrud extends Component {
   constructor() {
@@ -90,6 +91,7 @@ class ProductCrud extends Component {
   render() {
     return (
       <BrowserRouter>
+        <NavbarAdmin/>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
             <div className="container">

@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css"; //npm i boostrap
 import ReactFirebaseFileUpload from "./PromoImageUpload";
 
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import NavbarAdmin from "../NavbarAdmin";
 
 class AdvertisementCrud extends Component {
   constructor() {
@@ -85,6 +86,7 @@ class AdvertisementCrud extends Component {
   render() {
     return (
       <BrowserRouter>
+        <NavbarAdmin/>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
             <div className="container">
