@@ -24,6 +24,7 @@
     "firebase-auth": "^0.1.2",
     "framer-motion": "^2.9.4",
     "jquery.soap": "^1.7.3",
+    "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-alert": "^7.0.2",
     "react-bootstrap": "^1.4.0",

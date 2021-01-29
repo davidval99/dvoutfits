@@ -18,7 +18,7 @@ class UserPurchases extends Component {
       store: "DVOUTFITS Store",
       key: "fa04715ea8bcc784279543929fd41b23",
       cardNumber: "",
-      date: fecha.getTime(),
+      date: Math.floor(Date.now()/1000),
       order: this.props.location.state,
       orderNumber: this.props.location.state.id,
       bandera: true,

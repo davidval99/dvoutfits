@@ -18,7 +18,7 @@ class Cart extends Component {
       email: { storage: localStorage.getItem("localUserEmail") },
       name: { storage: localStorage.getItem("localUserName") },
       address: "",
-      date: fecha.getTime(),
+      date: Math.floor(Date.now()/1000),
       paid: "false",
       showCheckout: false,
     };

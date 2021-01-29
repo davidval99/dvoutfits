@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { db, storage } from "./Firebase";
+import Moment from 'moment';
 //import SimpleDateTime  from 'react-simple-timestamp-to-date';
 
 class UserPurchasesPaid extends Component {
@@ -35,8 +36,7 @@ class UserPurchasesPaid extends Component {
         response.forEach((document) => {
             let id = document.id;
             let date = document.data().date
-            let datetime = new Date(date);
-            date = datetime.toISOString();
+            date = Moment(date).format("MMM Do YY");
             let cardNumber = document.data().cardNumber;
             let store = document.data().store;
             let order = document.data().order;
