@@ -53,8 +53,6 @@ class Reportes extends Component {
     console.log(fechaIni);
     const response = await db
         .collection("Order")
-        .where("date", ">=", fechaIni)
-        .where("date", "<=", fechaFin )
         .get();
 
     response.forEach((document) => {
@@ -74,14 +72,14 @@ class Reportes extends Component {
         return d.substr(0, 21);
     }
     this.setState({ ListOrders: list });
-    var fechas=[], totales=[]; 
+    var fechas=[], nombres=[]; 
     this.state.ListOrders.map((elemento)=>{
         fechas.push(elemento.date);
-        totales.push(elemento.total);
+        nombres.push(elemento.name);
     });
-    this.setState({fechas: fechas, totales: totales});
+    this.setState({fechas: fechas, nombres: nombres});
     console.log(this.state.fechas);
-    console.log(this.state.totales);
+    console.log(this.state.nombres);
     }
 
 
@@ -110,9 +108,9 @@ class Reportes extends Component {
 
     configurarGrafica(){
         const data={
-            labels: this.state.fechas,
+            labels: this.state.nombres,
             datasets:[{
-                data: this.state.totales,
+                data: this.state.fechas,
                 backgroundColor: this.state.colores
             }]
         };
@@ -145,7 +143,7 @@ class Reportes extends Component {
             <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
                 <div className="container">
                     <h1 className="navbar-brand">
-                        Reportes
+                        Reportes de órdenes colocadas
                     </h1>
                 </div>
             </nav>
@@ -169,7 +167,6 @@ class Reportes extends Component {
             <br/>
             <br/>
             <button onClick={this.configurarGrafica}>Ver gráfico</button>
-            <button onClick={this.alertEndDate}>Ver reporte completo</button>
             <div >
                 <Pie data={this.state.data} opciones={this.state.opciones}/>
             </div>
@@ -177,12 +174,16 @@ class Reportes extends Component {
                 {this.state.ListOrders.map((Order) => (
                     <li className="list-group-item" key={Order.id}>
                     <p className="font-weight-bold">
-                        <span>Dirección: </span>
-                        {Order.address}
+                        <span>Fecha: </span>
+                        {Order.date}
                     </p>
                     <p className="font-weight-bold">
-                        <span>Total: </span>
-                        {Order.total}
+                        <span>Nombre: </span>
+                        {Order.name}
+                    </p>
+                    <p className="font-weight-bold">
+                        <span>Nombre: </span>
+                        {Order.name}
                     </p>
 
                     </li>
