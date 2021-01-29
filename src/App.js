@@ -40,6 +40,7 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <div className="grid-container">
+            <Header />
           <Navbar />
 
           <main className="main">
