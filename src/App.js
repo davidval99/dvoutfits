@@ -25,6 +25,7 @@ import ContactInsert from "./components/JsFiles/ContactCRUD";
 import {Container, Flex, Spinner, VStack} from "@chakra-ui/react";
 import CommentSection from "./components/JsFiles/CommentSection";
 import UserPurchases from "./components/JsFiles/UserPurchases";
+import UserPurchasesPaid from "./components/JsFiles/UserPurchasesPaid"
 import PayOrder from "./components/JsFiles/PayOrder";
 import Header from "./components/JsFiles/Header";
 
@@ -69,6 +70,7 @@ function App() {
               <Route path="/PromoCrud" component={PromoAdminCrud} />
               <Route path="/AdvertisementCrud" component={BannerCrud} />
               <Route path="/UserPurchases" component={UserPurchases} />
+              <Route path="/UserPurchasesPaid" component={UserPurchasesPaid} />
               <Route path="/AdminPage" component={AdminPage}/>
             </div>
           </main>
