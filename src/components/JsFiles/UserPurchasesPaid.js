@@ -1,7 +1,7 @@
 import React, { Component, useState } from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { db, storage } from "./Firebase";
-import SimpleDateTime  from 'react-simple-timestamp-to-date';
+//import SimpleDateTime  from 'react-simple-timestamp-to-date';
 
 class UserPurchasesPaid extends Component {
     constructor(props) {

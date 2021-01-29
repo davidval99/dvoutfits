@@ -1,7 +1,7 @@
 import React, { Component, useState } from "react";
 import { db, storage } from "./Firebase";
-import 'jquery';
-import 'jquery.soap';
+//import 'jquery';
+//import 'jquery.soap';
 
 
 class UserPurchases extends Component {
