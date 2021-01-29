@@ -29,7 +29,7 @@ class UserPurchases extends Component {
   async addSale(event) {
     event.preventDefault();
     const { company, store, cardNumber, key, date, order, orderNumber } = this.state;
-    const obj = { company, store, cardNumber, key, date, orderNumber};
+    const obj = { company, store, cardNumber, key, date, order, orderNumber};
     await db.collection("Sales").add(obj);
     await db.collection("Order").doc(this.props.location.state.id).update({paid: "true"});
 

@@ -58,6 +58,17 @@ class App extends React.Component {
                 </Link>
               </li>
 
+              <li className="nav-item">
+                <Link
+                    to={{
+                      pathname: "/UserPurchasesPaid",
+                      state: this.state.currentUser.email,
+                    }}
+                >
+                  Ver Compras realizadas
+                </Link>
+              </li>
+
               <button className="insert" onClick={() => auth.signOut()}>
                 LOG OUT
               </button>
