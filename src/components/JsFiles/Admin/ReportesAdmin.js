@@ -8,6 +8,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { db, storage } from "../Firebase";
 import {Pie} from 'react-chartjs-2';
+import moment from 'moment';
 
 
 
@@ -31,9 +32,11 @@ class Reportes extends Component {
             email: "",
             name: "",
             total: "",
+            date : "",
+            fecha : "",
             bandera: true,
             colores: [],
-            direcciones:[],
+            fechas:[],
             totales:[],
             data: [],
             opciones: [],
@@ -42,13 +45,18 @@ class Reportes extends Component {
         }
         
     }
-
     
     async getOrders() {
     let list = [];
+    let fechaIni = (moment(this.state.startDate).unix());
+    let fechaFin = (moment(this.state.endDate).unix());
+    console.log(fechaIni);
     const response = await db
         .collection("Order")
+        .where("date", ">=", fechaIni)
+        .where("date", "<=", fechaFin )
         .get();
+
     response.forEach((document) => {
         let id = document.id;
         let address = document.data().address;
@@ -56,17 +64,23 @@ class Reportes extends Component {
         let email = document.data().email;
         let name = document.data().name;
         let total = document.data().total;
-        let obj = { id, address, email, name, total, cartItems };
+        let date = document.data().date;
+        let obj = { id, address, email, name, total, date, cartItems };
         list.push(obj);
     });
+    const convertDate = (date) => {
+        // whatever formatting you want to do can be done here
+        var d = date.toString()
+        return d.substr(0, 21);
+    }
     this.setState({ ListOrders: list });
-    var direcciones=[], totales=[];
+    var fechas=[], totales=[]; 
     this.state.ListOrders.map((elemento)=>{
-        direcciones.push(elemento.address);
+        fechas.push(elemento.date);
         totales.push(elemento.total);
     });
-    this.setState({direcciones: direcciones, totales: totales});
-    console.log(this.state.direcciones);
+    this.setState({fechas: fechas, totales: totales});
+    console.log(this.state.fechas);
     console.log(this.state.totales);
     }
 
@@ -96,7 +110,7 @@ class Reportes extends Component {
 
     configurarGrafica(){
         const data={
-            labels: this.state.direcciones,
+            labels: this.state.fechas,
             datasets:[{
                 data: this.state.totales,
                 backgroundColor: this.state.colores
@@ -118,10 +132,10 @@ class Reportes extends Component {
 
 
     alertStartDate = () => {
-        alert(this.state.startDate);
+        alert(moment(this.state.startDate).unix());
     }
     alertEndDate = () => {
-        alert(this.state.endDate);
+        alert(moment(this.state.startDate).unix());
     }
 
 
