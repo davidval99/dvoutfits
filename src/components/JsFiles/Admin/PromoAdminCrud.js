@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 import { db, storage } from "../Firebase";
 import { render } from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css"; //npm i boostrap
-import { toast } from "react-toastify";
+
 import ReactFirebaseFileUpload from "./PromoImageUpload";
 
 import { BrowserRouter, Route, Link } from "react-router-dom";

@@ -11,10 +11,15 @@ class Cart extends Component {
   constructor(props) {
     console.log("hola");
     super(props);
+
+    const fecha = new Date();
+
     this.state = {
-      name: "",
-      email: "",
+      email: { storage: localStorage.getItem("localUserEmail") },
+      name: { storage: localStorage.getItem("localUserName") },
       address: "",
+      date: fecha.getTime(),
+      paid: "false",
       showCheckout: false,
     };
   }
@@ -24,10 +29,12 @@ class Cart extends Component {
   placeOrder = (e) => {
     e.preventDefault();
     const order = {
-      name: this.state.name,
-      email: this.state.email,
+      name: this.state.name.storage,
+      email: this.state.email.storage,
       address: this.state.address,
       cartItems: this.props.cartItems,
+      paid: this.state.paid,
+      date: this.state.date,
       total: this.props.cartItems.reduce((a, c) => a + c.price * c.count, 0),
     };
     this.props.placeOrder(order);
@@ -147,8 +154,10 @@ class Cart extends Component {
                         <li>
                           <label>Correo</label>
                           <input
+                              readOnly={true}
                             name="email"
                             type="email"
+                            value={this.state.email.storage}
                             required
                             onChange={this.handleInput}
                           ></input>
@@ -156,8 +165,10 @@ class Cart extends Component {
                         <li>
                           <label>Nombre</label>
                           <input
+                              readOnly={true}
                             name="name"
                             type="text"
+                            value={this.state.name.storage}
                             required
                             onChange={this.handleInput}
                           ></input>
